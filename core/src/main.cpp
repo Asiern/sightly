@@ -1,5 +1,4 @@
 #include "globals.h"
-#include "resources.h"
 #include "window.h"
 #include <Windows.h>
 
