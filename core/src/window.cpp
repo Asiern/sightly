@@ -57,7 +57,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         int centerX = (rect.right - rect.left) / 2;
         int centerY = (rect.bottom - rect.top) / 2;
 
-        RenderCrosshair(hdc, centerX, centerY, {4, 0, 1, RGB(255, 0, 0)});
+        RenderCrosshair(hdc, centerX, centerY, {10, 10, 2, RGB(255, 255, 255), CROSSHAIR_TYPE_DOT});
 
         EndPaint(hwnd, &ps);
         return 0;
