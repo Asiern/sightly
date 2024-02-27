@@ -7,7 +7,7 @@
 #include <fstream>
 #include <string>
 
-#define lpFileName "config.ini"
+#define lpFileName "config.json"
 
 class config
 {
