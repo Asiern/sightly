@@ -5,8 +5,6 @@
 
 using json = nlohmann::json;
 
-#define MAX_LINE_LENGTH 256
-
 std::string config::getConfigPath()
 {
     CHAR DocumentsPath[MAX_PATH];
