@@ -1,7 +1,8 @@
 #include "window.h"
+#include "config.h"
 #include "crosshair.h"
 #include "globals.h"
-#include "config.h"
+#include <shellapi.h>
 
 crosshair c;
 
@@ -43,7 +44,9 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         hMenu = CreatePopupMenu();
         AppendMenu(hMenu, MF_STRING, IDM_SHOW, "Show");
         AppendMenu(hMenu, MF_STRING, IDM_HIDE, "Hide");
+        AppendMenu(hMenu, MF_STRING, IDM_RELOAD, "Reload config");
         AppendMenu(hMenu, MF_SEPARATOR, 0, NULL); // Add a separator (line
+        AppendMenu(hMenu, MF_STRING, IDM_EDITOR, "Crosshair editor");
         AppendMenu(hMenu, MF_STRING, IDM_ABOUT, "About");
         AppendMenu(hMenu, MF_STRING, IDM_EXIT, "Exit");
         SetMenu(hwnd, hMenu);
@@ -99,8 +102,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
             DestroyWindow(hwnd);
             break;
 
-        case IDM_ABOUT:
-            MessageBox(hwnd, "Crosshair v1.0", "About", MB_OK);
+        case IDM_EDITOR:
+            ShellExecute(NULL, NULL, "https://asiern.github.io/sightly/", NULL, NULL, SW_SHOW);
             break;
 
         case IDM_SHOW:
@@ -109,6 +112,16 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
 
         case IDM_HIDE:
             ShowWindow(hwnd, SW_HIDE);
+            break;
+
+        case IDM_ABOUT:
+            MessageBox(hwnd, "Sightly\n\nMade by Asiern\n\nhttps://asiern.github.io/sightly/", "About", MB_OK);
+            break;
+
+        case IDM_RELOAD:
+            config* cfg = new config();
+            c = cfg->parse();
+            InvalidateRect(hwnd, NULL, TRUE);
             break;
         }
         return 0;

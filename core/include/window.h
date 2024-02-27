@@ -5,9 +5,11 @@
 #include <windows.h>
 
 #define IDM_EXIT 1
-#define IDM_ABOUT 2
+#define IDM_EDITOR 2
 #define IDM_SHOW 3
 #define IDM_HIDE 4
+#define IDM_RELOAD 5
+#define IDM_ABOUT 6
 
 LPCSTR ClassName();
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam);
