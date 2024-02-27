@@ -39,6 +39,10 @@ config::config()
     if (this->configFile == NULL)
     {
         fopen_s(&this->configFile, this->lpFilePath.c_str(), "w");
+        // Write the default config
+        fprintf(this->configFile,
+                "{\"type\":\"default\",\"thickness\":2,\"spacing\":4,\"size\":10,\"color\":{\"R\":255,"
+                "\"G\":0,\"B\":0,\"A\":1}}");
         fclose(this->configFile);
         fopen_s(&this->configFile, this->lpFilePath.c_str(), "r");
     }
