@@ -1,6 +1,9 @@
 #include "window.h"
 #include "crosshair.h"
 #include "globals.h"
+#include "config.h"
+
+crosshair c;
 
 LPCSTR ClassName()
 {
@@ -45,6 +48,10 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         AppendMenu(hMenu, MF_STRING, IDM_EXIT, "Exit");
         SetMenu(hwnd, hMenu);
 
+        // Load config
+        config* cfg = new config();
+        c = cfg->parse();
+
         return 0;
     }
     case WM_PAINT: {
@@ -57,7 +64,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         int centerX = (rect.right - rect.left) / 2;
         int centerY = (rect.bottom - rect.top) / 2;
 
-        RenderCrosshair(hdc, centerX, centerY, {10, 10, 2, RGB(255, 255, 255), CROSSHAIR_TYPE_DOT});
+        RenderCrosshair(hdc, centerX, centerY, c);
 
         EndPaint(hwnd, &ps);
         return 0;
