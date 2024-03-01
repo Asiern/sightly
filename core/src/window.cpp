@@ -27,6 +27,9 @@ HWND Create(LPCSTR lpWindowName, DWORD dwStyle, DWORD dwExStyle, int x, int y, i
 
 LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    PAINTSTRUCT ps;
+    HDC hdc;
+
     switch (message)
     {
     case WM_CREATE: {
@@ -51,15 +54,14 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         AppendMenu(hMenu, MF_STRING, IDM_EXIT, "Exit");
         SetMenu(hwnd, hMenu);
 
-        // Load config
-        config* cfg = new config();
-        c = cfg->parse();
-
         return 0;
     }
     case WM_PAINT: {
-        PAINTSTRUCT ps;
-        HDC hdc = BeginPaint(hwnd, &ps);
+        hdc = BeginPaint(hwnd, &ps);
+
+        // Load config
+        config* cfg = new config();
+        c = cfg->parse();
 
         // Draw the crosshair in the center of the window
         RECT rect;
