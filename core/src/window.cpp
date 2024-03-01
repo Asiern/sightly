@@ -44,7 +44,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         hMenu = CreatePopupMenu();
         AppendMenu(hMenu, MF_STRING, IDM_SHOW, "Show");
         AppendMenu(hMenu, MF_STRING, IDM_HIDE, "Hide");
-        AppendMenu(hMenu, MF_STRING, IDM_RELOAD, "Reload config");
+        // AppendMenu(hMenu, MF_STRING, IDM_RELOAD, "Reload config");
         AppendMenu(hMenu, MF_SEPARATOR, 0, NULL); // Add a separator (line
         AppendMenu(hMenu, MF_STRING, IDM_EDITOR, "Crosshair editor");
         AppendMenu(hMenu, MF_STRING, IDM_ABOUT, "About");
@@ -118,11 +118,11 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
             MessageBox(hwnd, "Sightly\n\nMade by Asiern\n\nhttps://asiern.github.io/sightly/", "About", MB_OK);
             break;
 
-        case IDM_RELOAD:
-            config* cfg = new config();
-            c = cfg->parse();
-            InvalidateRect(hwnd, NULL, TRUE);
-            break;
+            // case IDM_RELOAD:
+            //     config* cfg = new config();
+            //     c = cfg->parse();
+            //     InvalidateRect(hwnd, NULL, TRUE);
+            //     break;
         }
         return 0;
     }
