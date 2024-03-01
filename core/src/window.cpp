@@ -39,8 +39,8 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         nidApp.uID = 1;
         nidApp.uFlags = NIF_ICON | NIF_MESSAGE | NIF_TIP;
         nidApp.uCallbackMessage = WM_USER + 1;
-        nidApp.hIcon = LoadIcon(GetModuleHandle(NULL), IDI_APPLICATION);
-        strcpy(nidApp.szTip, "Crosshair");
+        nidApp.hIcon = LoadIcon(GetModuleHandle(NULL), "IDI_ICON_CROSSHAIR");
+        strcpy(nidApp.szTip, "Sightly");
         Shell_NotifyIcon(NIM_ADD, &nidApp);
 
         // Create the context menu
@@ -48,7 +48,7 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
         AppendMenu(hMenu, MF_STRING, IDM_SHOW, "Show");
         AppendMenu(hMenu, MF_STRING, IDM_HIDE, "Hide");
         // AppendMenu(hMenu, MF_STRING, IDM_RELOAD, "Reload config");
-        AppendMenu(hMenu, MF_SEPARATOR, 0, NULL); // Add a separator (line
+        AppendMenu(hMenu, MF_SEPARATOR, 0, NULL); // Add a separator (line)
         AppendMenu(hMenu, MF_STRING, IDM_EDITOR, "Crosshair editor");
         AppendMenu(hMenu, MF_STRING, IDM_ABOUT, "About");
         AppendMenu(hMenu, MF_STRING, IDM_EXIT, "Exit");
