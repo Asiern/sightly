@@ -86,7 +86,7 @@ export default function Editor(): JSX.Element {
   }, [onRenderCrosshair]);
 
   return (
-    <section className="max-w-6xl mx-auto py-4 my-8 gap-4 flex flex-col flex-1">
+    <section className="max-w-6xl mx-auto py-4 mb-8 gap-4 flex flex-col flex-1">
       <div className="grid grid-cols-3 gap-4 mx-4">
         <Card className="col-span-2">
           <CardTitle className="text-center mt-8 mb-2">Editor</CardTitle>

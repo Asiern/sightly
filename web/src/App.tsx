@@ -30,6 +30,46 @@ export default function App() {
           </Button>
         </div>
       </section>
+      <section className="max-w-6xl mx-auto p-4">
+        <h2 className="text-2xl font-bold mt-8">Configuration</h2>
+        <p className="mt-4">To configure Sightly, follow these steps:</p>
+        <ol className="my-6 ml-6 list-disc [&>li]:mt-2">
+          <li>
+            Launch Sightly for the first time. This will create a config file at{" "}
+            <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+              Documents/Sightly/config.json
+            </code>{" "}
+            with the default configuration.
+          </li>
+          <li>
+            Use the editor below to customize your crosshair. Adjust the
+            settings according to your preferences.
+          </li>
+          <li>
+            Once you are satisfied with your custom crosshair, copy the
+            configuration from the editor.
+          </li>
+          <li>
+            Open the{" "}
+            <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+              config.json
+            </code>{" "}
+            file located at <code>Documents/Sightly</code>.
+          </li>
+          <li>
+            Paste the copied configuration into the <code>config.json</code>{" "}
+            file, replacing the existing content.
+          </li>
+          <li>
+            Save the{" "}
+            <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold">
+              config.json
+            </code>{" "}
+            file.
+          </li>
+          <li>Restart Sightly for the changes to take effect.</li>
+        </ol>
+      </section>
       <Editor />
       <Footer />
       <Toaster />
